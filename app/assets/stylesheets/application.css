@@ -206,3 +206,56 @@ em {
 .social-login__icon:hover {
 	transform: scale(1.5);	
 }
+
+.col-sm-12 {
+    margin-top: 1rem;
+    padding: 0 20rem;
+}
+
+.card {
+    background-color: #FCEEE9;
+    border: 2px solid #EEA990;
+}
+
+.rud {
+    float: right;
+}
+
+.show-icon {
+    color: #87B87F;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.edit-icon {
+    color: #6FB3E0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.delete-icon {
+    color: #D15B47;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #AA6F73;
+}
+
+.card-body-categ {
+	flex: 1 1 auto;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+	display: flex;
+	justify-content: space-between;
+}
+
+.col-sm-13 {
+    margin-top: 1rem;
+}
+
+.col-sm-4 {
+    margin-top: 1rem;
+}
