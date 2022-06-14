@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<%= image_tag "logo.png", height: 60 %>
+<%= image_tag "logo2.png", height: 60 %>
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,27 +9,37 @@
 
                 <!-- <li class="nav-item">
                     <%= link_to 'About Us', home_about_path, class:"nav-link" %>
-                </li> -->
+                </li> 
 
                 <% if user_signed_in? %>
-                    <li class="nav-item">
-                        <%= link_to 'Category', categories_path, class:"nav-link" %>
-                    </li>
-
-                    <li class="nav-item">
-                        <%= link_to 'New Category', new_category_path, class:"nav-link" %>
-                    </li>
+                    
                     <li class="Edit Profile">
                         <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
                     </li>
-                <% end %>
+                <% end %> -->
             </ul>
             <div class="d-flex">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                    
                     <% if user_signed_in? %>
                         <li class="nav-item">
-                            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"nav-link" %> 
+                            <%= link_to 'CATEGORY', categories_path, class:"nav-link" %>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">|</a>
+                        </li> 
+
+                        <li class="nav-item">
+                            <%= link_to 'ADD NEW CATEGORY', new_category_path, class:"nav-link" %>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">|</a>
+                        </li> 
+
+                        <li class="nav-item">
+                            <%= link_to 'SIGN OUT', destroy_user_session_path, method: :delete, class:"nav-link" %> 
                         </li>
                     <% else %>
                         <li class="nav-item">

@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 .navbar {
     background: linear-gradient(to right, #EEA990, #AA6F73);
+}
+
+.nav-link {
+	font-family: 'Oswald', sans-serif;
 }
 
 .logo {
@@ -217,8 +224,29 @@ em {
     border: 2px solid #EEA990;
 }
 
+.task-box {
+	display: flex;
+	justify-content: center;
+}
+
+.card-task {
+	background-image: url('task_bg.jpg');
+    border: 2px solid #EEA990;
+	background-repeat: no-repeat;
+	background-size: 30rem;
+	height: 31rem;
+	width: 30rem;
+	border-radius: 1rem;
+	background-position: center;
+}
+
 .rud {
     float: right;
+}
+
+.rud2 {
+    float: right;
+	padding: 1rem 5rem 0 0;
 }
 
 .show-icon {
@@ -246,7 +274,7 @@ em {
 
 .card-body-categ {
 	flex: 1 1 auto;
-    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    padding: 0.5rem;
     color: var(--bs-card-color);
 	display: flex;
 	justify-content: space-between;
@@ -258,4 +286,38 @@ em {
 
 .col-sm-4 {
     margin-top: 1rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.margin {
+    margin: 0 10rem;
+}
+
+.margin2 {
+    margin: 8rem 0 0 6rem ;
+}
+
+.myFont {
+	font-family: 'Architects Daughter', cursive;
+	font-size: 20px;
+}
+
+.btn-update {
+	background-color: #87B87F;
+	font-weight: bold;
+	color: #595959;
+}
+
+.btn-cancel {
+	background-color: #D15B47;
+	font-weight: bold;
+	color: #595959;
+}
+
+h1 {
+	color: #595959;
+	font-family: 'Shadows Into Light', cursive;
 }

@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :notes %>
-    <%= form.text_area :notes %>
+    <%= form.text_area :notes, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, class:"form-select" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-check">
+    <%= form.label :completed, class:"form-check-label" %>
+    <%= form.check_box :completed, class:"form-check-input" %> 
+  </div>
+
+  <div class="actions center">
+    <%= form.submit class:"btn btn-update" %>
+    <%= link_to 'Back', category_path(@category), class:"btn btn-cancel" %>
   </div>
 <% end %>

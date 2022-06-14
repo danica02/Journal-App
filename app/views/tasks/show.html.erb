@@ -1,19 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+<div class="task-box">
+  <div class="card-task">
+      <div class="card-body margin2">
+        <br/>
+        <p class="myFont">
+          <strong class="myFont">Title:</strong>
+          <%= @task.title %>
+        </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @task.notes %>
-</p>
+        <p class="myFont">
+          <strong class="myFont">Notes:</strong>
+          <%= @task.notes %>
+        </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @task.date %>
-</p>
+        <p class="myFont">
+          <strong class="myFont">Due Date:</strong>
+          <%= @task.date %>
+        </p>
 
-<%= link_to 'Edit', edit_category_task_path(@category) %> |
-<%= link_to 'Back', category_path(@category) %>
+        <% if @task.completed == true %>
+          <p class="myFont">
+            <strong class="myFont">
+              <i class="show-icon bi-check-circle-fill"></i>
+              Completed
+            </strong>
+          </p>
+        <% end %>
+
+        <div class="rud2">
+          <%= link_to ' Edit', edit_category_task_path(@category), class:"edit-icon bi-gear-fill" %> |
+          <%= link_to ' Back', category_path(@category), class:"delete-icon bi-check-circle-fill" %>
+          <br/>
+        </div>
+      </div>
+  </div>
+</div>
