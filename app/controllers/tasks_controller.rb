@@ -48,11 +48,17 @@ class TasksController < ApplicationController
 
   private
     def set_category
-      @category = current_user.category.find(params[:category_id])
+      @category = current_user.category.find_by_id(params[:category_id])
+      if @category.nil?
+        redirect_to category_url
+      end
     end
 
     def set_task
-      @task = @category.tasks.find(params[:id])
+      @task = @category.tasks.find_by_id(params[:id])
+      if @task.nil?
+        redirect_to category_url(@category), notice: "No task id #{params[:id]} found" 
+      end
     end
 
     def task_params
