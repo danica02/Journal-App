@@ -17,10 +17,25 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= @category.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Task: 0</h6>
-          <p class="card-text">Started 1day ago</p>
+          <h5 class="card-title"><%= task.title %></h5>
+          <br/>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <i class="icon-x bi-clock-fill"></i>
+            <%= task.date.strftime('%b %e, %Y') %>
+          </h6>
 
+          <% if task.completed == true %>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <i class="icon-x bi-check-lg"></i>
+              Completed
+            </h6>
+          <% else %>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <i class="icon-x bi-caret-right"></i>
+              Not Yet Completed
+            </h6>           
+          <% end %>
+          
           <div class="rud">
             <i class="show-icon bi-eye-fill"></i>
             <%= link_to 'Show', category_task_path(@category, task), class:"show-icon" %>
