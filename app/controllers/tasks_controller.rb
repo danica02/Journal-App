@@ -1,10 +1,16 @@
 class TasksController < ApplicationController
-  before_action :set_category
+  before_action :set_date_today, only: %i[ index ]
   before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_category, except: %i[ index ]
 
   # GET /tasks
   def index
-    @tasks = current_user.tasks
+    day = params[:day]
+    if day
+      @tasks = current_user.tasks.where(date: day)
+    else
+      @tasks = current_user.tasks
+    end
   end
 
   # GET /tasks/1
@@ -47,6 +53,10 @@ class TasksController < ApplicationController
   end
 
   private
+    def set_date_today
+      @date_today = Date.current.strftime('%b %e, %Y')
+    end
+
     def set_category
       @category = current_user.category.find_by_id(params[:category_id])
       if @category.nil?
