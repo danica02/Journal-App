@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :set_date_today, only: %i[ index ]
-  before_action :set_task, only: %i[show edit update destroy]
-  before_action :set_category, except: %i[ index ]
+  before_action :set_date_today, only: %i[ index overdue after_today ]
+  before_action :set_category, except: %i[ index overdue after_today ]
+  before_action :set_task, only: %i[ show edit update destroy ]
 
   # GET /tasks
   def index
