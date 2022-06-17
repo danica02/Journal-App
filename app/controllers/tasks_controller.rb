@@ -1,21 +1,16 @@
 class TasksController < ApplicationController
-  before_action :set_date_today, only: %i[ index overdue after_today ]
-  before_action :set_category, except: %i[ index overdue after_today ]
+  before_action :set_category, except: %i[ index ]
   before_action :set_task, only: %i[ show edit update destroy ]
 
   # GET /tasks
   def index
-    day = params[:day]
-    if day
-      @tasks = current_user.tasks.where(date: day)
-    else
-      @tasks = current_user.tasks
-    end
+    @tasks = current_user.tasks
+    @due = @tasks.where(["date >= ? AND date <= ?", Date.current, Date.current + 1])
   end
 
   # GET /tasks/1
   def show
-  end
+  end 
 
   # GET /tasks/new
   def new
@@ -53,10 +48,6 @@ class TasksController < ApplicationController
   end
 
   private
-    def set_date_today
-      @date_today = Date.current.strftime('%b %e, %Y')
-    end
-
     def set_category
       @category = current_user.category.find_by_id(params[:category_id])
       if @category.nil?
