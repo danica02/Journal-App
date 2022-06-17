@@ -1,4 +1,7 @@
 <body class="login_bg">
+  <% if resource.errors.any? %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+  <% end %>
   <div class="login-container">
     <div class="screen">
       <div class="screen__content">
@@ -6,7 +9,7 @@
           <%= image_tag "logo2.png", class:"logo" %>
         </div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "login"}) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+
           <div class="login__field">
             <i class="login__icon bi bi-person-fill"></i>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"login__input", placeholder:"Email Address" %>

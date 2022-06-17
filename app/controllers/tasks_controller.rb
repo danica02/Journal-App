@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     @tasks = current_user.tasks
-    @due = @tasks.where(["date >= ? AND date <= ?", Date.current, Date.current + 1])
+    @due = @tasks.where(["date = ? AND completed = ?", Date.current, false])
   end
 
   # GET /tasks/1
