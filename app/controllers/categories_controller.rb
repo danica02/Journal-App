@@ -1,10 +1,9 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories
   def index
-    @categories = current_user.category
+    @categories = current_user.categories
   end
 
   # GET /categories/1
@@ -13,7 +12,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = current_user.category.build
+    @category = current_user.categories.build
   end
 
   # GET /categories/1/edit
@@ -22,7 +21,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   def create
-    @category = current_user.category.build(category_params)
+    @category = current_user.categories.build(category_params)
 
     if @category.save
       redirect_to @category, notice: 'Category was successfully created.'
@@ -49,7 +48,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = current_user.category.find_by_id(params[:id])
+      @category = current_user.categories.find_by_id(params[:id])
       if @category.nil?
         redirect_to categories_url, notice: "No category id #{params[:id]} found"
       end

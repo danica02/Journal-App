@@ -8,20 +8,20 @@ class TasksController < ApplicationController
     @due = @tasks.where(["date = ? AND completed = ?", Date.current, false])
   end
 
-  # GET /tasks/1
+  # GET /categories/1/tasks/1
   def show
   end 
 
-  # GET /tasks/new
+  # GET /categories/1/tasks/new
   def new
    @task = @category.tasks.build
   end
 
-  # GET /tasks/1/edit
+  # GET /categories/1/tasks/1/edit
   def edit
   end
 
-  # POST /tasks
+  # POST /categories/1
   def create
     @task = @category.tasks.build(task_params)
 
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tasks/1
+  # PATCH/PUT /categories/1
   def update
     if @task.update(task_params)
       redirect_to @category, notice: 'Task was successfully updated.'
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
+  # DELETE /categories/1
   def destroy
     @task.destroy
     redirect_to @category, notice: 'Task was successfully destroyed.'
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
   private
     def set_category
-      @category = current_user.category.find_by_id(params[:category_id])
+      @category = current_user.categories.find_by_id(params[:category_id])
       if @category.nil?
         redirect_to category_url
       end

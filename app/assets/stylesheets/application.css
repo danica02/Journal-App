@@ -9,6 +9,14 @@
 	padding: 0;	
 	font-family: Raleway, sans-serif;}
 
+.home_bg {
+	background-image: url('home-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 50;
+	text-align: center;
+}
+
 .navbar {
     background: linear-gradient(to right, #EEA990, #AA6F73);}
 
@@ -264,6 +272,11 @@ em {
 	font-weight: bold;
 	color: #595959;}
 
+.btn-start {
+	background-color: #EEA990;
+	font-weight: bold;
+	color: #FFF;}
+
 .btn-cancel {
 	background-color: #D15B47;
 	font-weight: bold;
@@ -311,3 +324,15 @@ li.dropdown {
 	width: 59rem;
 	font-weight: bold;
 	color: #595959;}
+
+.datetime {
+	padding-top: 15rem;}
+
+.journal {
+	color: #e78765;
+	font-weight: bold;
+	font-size: 5rem;}
+
+#current_date {
+	color: #e78765;
+	font-size: 3rem;}

@@ -1,11 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  notes: MyText
+task: 
+  title: Task1
+  note: Task1 Note.
   date: 2022-06-13
-
-two:
-  title: MyString
-  notes: MyText
-  date: 2022-06-13
+  completed: false  
+  category_id: 1
