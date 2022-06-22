@@ -8,9 +8,9 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "shoud not save if existing name on same user" do
-    category = Category.new(name: "Category1", user_id:1)
+    category = Category.new(name: "Test", user_id:1)
     assert category.save
-    category = Category.new(name: "Category1", user_id:1)
+    category = Category.new(name: "Test", user_id:1)
     assert_not category.save
   end
 

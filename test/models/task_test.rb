@@ -6,10 +6,10 @@ class TaskTest < ActiveSupport::TestCase
     assert_not @task.save
   end
 
-  test "shoud not save if existing name on same user" do
+  test "shoud not save if existing task title on same category id" do
     task = Task.new(title: "Test", category_id:1)
-    assert category.save
-    category = Category.new(title: "Test", category_id:1)
-    assert_not category.save
+    assert task.save
+    task = Task.new(title: "Test", category_id:1)
+    assert_not task.save
   end
 end
