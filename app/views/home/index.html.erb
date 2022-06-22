@@ -14,13 +14,18 @@
 </body>
 
 <script>
-    date = new Date();
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    day = date.getDate();
+    months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    days = ["Sun","Mon","Tues","Wed","Thurs","Fri","Sat"];
 
-    hours = date.getHours();
-    minutes = date.getMinutes();
+    d = new Date();
+    
+    day = days[d.getDay()];
+    month = months[d.getMonth()];
+    date = d.getDate();
+    year = d.getFullYear();
+
+    hours = d.getHours();
+    minutes = d.getMinutes();
 
     newformat = hours >= 12 ? 'PM' : 'AM';
 
@@ -30,5 +35,5 @@
     hours = hours < 10 ? '0' + hours : hours;
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
-    document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year + " " + hours + ":" + minutes + " " + newformat;
+    document.getElementById("current_date").innerHTML = day + ' ' + month + ' ' + date + ', ' + year + ' ' + hours + ':' + minutes + ' ' + newformat;
 </script>
