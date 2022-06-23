@@ -1,7 +1,9 @@
 require "test_helper"
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    sign_in users(:user)
     @category = categories(:category)
   end
 
@@ -17,7 +19,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create category" do
     assert_difference('Category.count') do
-      post categories_url, params: { category: { name: @category.name } }
+      post categories_url, params: { category: { name: "Category3" } }
     end
 
     assert_redirected_to category_url(Category.last)

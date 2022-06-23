@@ -1,7 +1,10 @@
 require "test_helper"
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    sign_in users(:user)
+    @category = categories(:category)
     @task = tasks(:task)
   end
 
@@ -11,38 +14,33 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_task_url
+    get new_category_task_url(@category, @task)
     assert_response :success
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { date: @task.date, notes: @task.notes, title: @task.title } }
+      post category_tasks_url(@category), params: { task: { date: @task.date, notes: "Task2 Note", title: "Task2" } }
     end
 
-    assert_redirected_to task_url(Task.last)
+    assert_redirected_to category_path(@category)
   end
 
   test "should show task" do
-    get task_url(@task)
+    get category_task_url(@category, @task)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_task_url(@task)
+    get edit_category_task_url(@category, @task)
     assert_response :success
-  end
-
-  test "should update task" do
-    patch task_url(@task), params: { task: { date: @task.date, notes: @task.notes, title: @task.title } }
-    assert_redirected_to task_url(@task)
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
-      delete task_url(@task)
+      delete category_task_url(@category, @task)
     end
 
-    assert_redirected_to tasks_url
+    assert_redirected_to category_url(@category)
   end
 end
